@@ -1,3 +1,12 @@
+/**
+    CS2600 - Final
+    Jeremy Embar
+    
+    Exercise 2
+    MQTT structure from https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker
+    Thermistor wiring from Freenove example project.
+*/
+
 #define PIN_LED       2
 #define PIN_ANALOG_IN 34
 #define PIN_BUTTON    12
@@ -92,7 +101,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
   free(topic_copy);
 }
 
-void loop() { // read the temperature every second
+void loop() {
   client.loop();
   if (digitalRead(PIN_BUTTON) == LOW && digitalRead(PIN_LED) == HIGH) {
     digitalWrite(PIN_LED, LOW);
